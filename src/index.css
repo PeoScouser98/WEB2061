@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+	.text-heading {
+		@apply text-center
+         font-semibold 
+         text-5xl
+          my-10 
+          text-zinc-500
+           flex
+            items-center
+            justify-center
+             gap-2
+              after:[content:''] before:[content:'']
+               before:border-t before:border-t-zinc-500 before:w-[100px] 
+               after:border-t after:border-t-zinc-500 after:w-[100px];
+	}
+}
