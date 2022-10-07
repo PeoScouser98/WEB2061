@@ -7,6 +7,7 @@ const filestackUpload = () => {
 	const options = {
 		accept: [".png", ".jpg", ".jpeg", ".webp"],
 		acceptFn: (file, options) => {
+			console.log(file.originalFile);
 			const mimeFromExtension = options.mimeFromExtension(file.originalFile.name);
 			if (options.acceptMime.length && !options.acceptMime.includes(mimeFromExtension)) {
 				return Promise.reject("Cannot accept that file");

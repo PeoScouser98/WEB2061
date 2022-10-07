@@ -9,12 +9,11 @@ import { generateID } from "../utils/features";
 const ProductPage = {
 	render() {
 		return /* template */ `
-		<h1 class="text-center text-3xl font-semibold my-5">Manage Products</h1>
-		<div class="flex justify-center flex-grow items-stretch max-w-6xl mx-auto max-h-full">
-			<form action="" id="create-product--form" class="flex flex-col gap-5 basis-1/2 border-r pr-5 max-h-[80vh] overflow-y-scroll">
+		<div class="flex justify-center flex-grow items-stretch max-w-6xl mx-auto py-10">
+			<form action="" id="create-product--form" class="flex flex-col gap-5 basis-1/2 border-r pr-5 h-[80vh] overflow-y-scroll">
 				<!--  -->
 				<div class="form-control gap-1">
-					<label class="font-medium italic" for="">Products</label>
+					<label class="font-medium italic" for="">Product</label>
 					<input type="text" class="input input-bordered" id="name" data-fieldname="Product's name"/>
 					<small class="error-message text-error font-medium"></small>
 				</div>
@@ -44,11 +43,10 @@ const ProductPage = {
 					<label class="font-medium italic" for="">Image</label>
 					<input type="button" id="upload-btn" class="btn w-fit normal-case hidden" value="Upload" />
 					<div class="flex justify-center items-center max-w-[200px] h-[200px] border relative rounded-xl overflow-hidden">
-						<label for="upload-btn" class="font-medium absolute top-0 left-0 right-0 h-full w-full opacity-0 text-center flex justify-center items-center hover:bg-zinc-800 hover:text-white hover:opacity-100 duration-300">Upload</label>
+						<label for="upload-btn" class="font-medium absolute top-0 left-0 right-0 h-full w-full opacity-50 text-center text-zinc-400 flex justify-center items-center hover:bg-zinc-800 hover:text-white hover:opacity-100 duration-300">Upload</label>
 						<img  id="preview" class="text-white max-w-full w-full h-full object-cover object-center">
 					</div>
 					<small class="error-message text-error font-medium"></small>
-
 				</div>
 				<!--  -->
 				<div class="form-control gap-1">
@@ -63,7 +61,7 @@ const ProductPage = {
 		
 
 			<div class="flex flex-col gap-1 basis-1/2 pl-5 h-full">
-				<h2 class="font-medium italic text-center">Products List</h2>
+				<h2 class="font-medium italic text-center text-2xl">Products List</h2>
 				<table class="table h-fit">
 					<thead>
 						<tr>
@@ -125,6 +123,7 @@ const ProductPage = {
 
 				create(newProduct);
 				createProductForm.reset();
+				image.removeAttribute("src");
 			});
 		}
 	},

@@ -8,7 +8,7 @@ const StorePage = {
 		const products = JSON.parse(localStorage.getItem("products"));
 		return /* html */ `
             <div class="flex justify-start items-stretch gap-10 max-h-screen flex-grow h-full">
-                <aside class="basis-1/4 h-full border-r py-10 px-3">
+                <aside class="basis-1/4 h-screen border-r py-10 px-3">
                     <form action="" class="flex items-center w-full border rounded-lg mb-5" id="search-form">
                         <label for="" class="btn btn-square btn-ghost hover:bg-transparent"><i class="bi bi-search"></i></label>
                         <input type="text" name="keyword" class="input focus:outline-none flex-1" placeholder="Search ...">
@@ -22,9 +22,9 @@ const StorePage = {
 							.join("")}
                     </ul>
                 </aside>
-                <section class="w-full mx-auto">
+                <section class="w-full max-h-4/5 overflow-y-auto mx-auto">
                 <h1 class="text-heading text-center">Our Products</h1>
-                    <div class="flex justify-around items-stretch flex-wrap gap-x-5 gap-y-10 p-10 max-w-full mx-auto" id="products-list">
+                    <div class="grid grid-cols-4 gap-x-5 gap-y-10 p-10 max-w-full mx-auto" id="products-list">
                         ${products.map((item) => ProductCard.render(item)).join("")}
                     </div>
                 </section>
@@ -52,6 +52,11 @@ const StorePage = {
 				}),
 			);
 		}
+
+		const isValidResult = (ref, val) => {
+			if (val.length < 3) return false;
+			if (ref.toLowerCase().includes(val.toLowerCase())) return true;
+		};
 		// search product
 		const searchForm = $("#search-form");
 		if (searchForm) {
@@ -59,9 +64,7 @@ const StorePage = {
 				event.preventDefault();
 				const val = event.target["keyword"];
 				const result = products.filter(
-					(item) =>
-						item.name.toLowerCase().includes(val.value.toLowerCase()) ||
-						item.cateName.toLowerCase().includes(val.value.toLowerCase()),
+					(item) => isValidResult(item.name, val.value) || isValidResult(item.cateName, val.value),
 				);
 				const content =
 					result.length != 0

@@ -1,4 +1,3 @@
-import * as filestack from "filestack-js";
 import { $, $$ } from "../utils/common";
 import filestackUpload from "../utils/filestack";
 import { create, render, update } from "../utils/features";

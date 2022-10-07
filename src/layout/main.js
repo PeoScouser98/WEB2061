@@ -1,9 +1,9 @@
 const MainLayout = {
 	render() {
 		return /* template */ `
-		    <div class="drawer">
+		    <div class="drawer ">
 		        <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
-		        <div class="drawer-content flex flex-col justify-start !h-screen overflow-y-hidden ">
+		        <div class="drawer-content flex flex-col justify-start max-h-screen invisible-scroll">
 		            <!-- Navbar -->
 		            <div class="w-full navbar bg-base-300">
 		            <div class="flex-none lg:hidden">
@@ -21,7 +21,7 @@ const MainLayout = {
 		            </div>
 		            </div>
 		            <!-- Page content here -->
-					<div id="main" class="max-h-screen">
+					<div id="main" class="max-h-4/5 overflow-auto">
 					</div>
 		         
 		        </div>

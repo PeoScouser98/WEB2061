@@ -11,7 +11,7 @@ const ProductCard = {
                     <p class="font-semibold text-zinc-400">${name}</p>
                     <p class="italic w-[-webkit-fill-available] truncate">${item.desc}</p>
                     <div class="card-actions justify-end">
-                        <button class="btn btn-ghost btn-square text-2xl"><i class="bi bi-cart3"></i></button>
+                        <button class="btn btn-accent gap-2 normal-case"><i class="bi bi-cart3"></i> Add to Cart</button>
                     </div>
                 </div>
             </div>
